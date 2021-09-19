@@ -28,8 +28,8 @@ SET <variableName> WITH <value>
 ## Display
 > Untuk menampilkan output atau value yang diinginkan
 ```
-  STORE firstVariableName WITH ANY STRING
-  STORE secondVariableName WITH ANY STRING
+STORE firstVariableName WITH ANY STRING
+STORE secondVariableName WITH ANY STRING
 
 // Menampilkan nilai dari firstVariableName
 DISPLAY firstVariableName
