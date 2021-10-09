@@ -6,7 +6,7 @@
   
   Untuk push ke github
     1. buat file yang namanya .gitignore
-    2. masukkan 'node_modules' ke dalam file tersebut
+    2. masukkan 'node_modules' ke dalam file tersebut, sesuaikan dengan structure folder kalian masing2
 */
 
 import fetch from 'node-fetch';
