@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import Content from '../components/Content';
 import Form from '../components/Form';
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
           : null
         }
         {/* {this.state?.isShowForm && <Form />} */}
+        <Content title={"This is a title of content"} number={"Test"}/>
       </div>
     )
   }
