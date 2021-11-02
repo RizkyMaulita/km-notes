@@ -11,7 +11,10 @@ function Navbar (props) {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item active">
-            <Link to="/favorites">Favorite</Link>
+            <Link to="/favorites" style={{ textDecoration: 'none', color: 'inherit' }}>Favorite</Link>
+          </li>
+          <li className="nav-item mx-2">
+            <Link to="/mangas" style={{ textDecoration: 'none' , color: 'inherit' }}>Manga</Link>
           </li>
         </ul>
       </div>

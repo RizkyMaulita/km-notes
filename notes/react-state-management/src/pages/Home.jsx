@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar"
 import { useSelector, useDispatch } from "react-redux"
 import { setDataAnimesAction, SETDATAANIMES_TYPE } from "../store/actions/anime"
 import dummyData from '../assets/data/anime.json'
+import { setDataMangasAction } from "../store/actions/manga"
 
 export default function Home (props) {
   const dispatch = useDispatch()
@@ -15,6 +16,14 @@ export default function Home (props) {
       // dispatch({ type: 'anime/setDataAnimes' }) 
       // dispatch({ type: SETDATAANIMES_TYPE, payload: [dummyData] })
       dispatch(setDataAnimesAction([dummyData]))
+      // fetch('https://api.jikan.moe/v3/top/manga')
+      //   .then(response => response.json())
+      //   .then(data => {
+      //     const mangas = data.top
+      //     // console.log(mangas)
+      //     dispatch(setDataMangasAction(mangas))
+      //   })
+      //   .catch(err => console.log(err))
     }, 2000)
     /*
       Aturan pemanggilan dispatch :

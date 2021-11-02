@@ -5,12 +5,14 @@ export default function Card (props) {
   const { imageUrl, title, url, type } = props
 
   return (
-    <div className="col-6 my-3">
+    <div className="col-4 my-3" style={{ height: '700px', overflow: 'scroll' }}>
       <div className="card h-100">
         <img
           src={imageUrl || ''} // ga ada NaN , undefined, null
           className="card-img-top"
           alt="skilvul"
+          width="200px"
+          height="400px"
         />
         <div className="card-body">
           <h5 className="card-title">{title || ''}</h5>
