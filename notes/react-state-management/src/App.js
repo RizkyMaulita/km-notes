@@ -1,4 +1,4 @@
-import { HomePage, FavoritePage, MangaPage } from "./pages"
+import { HomePage, FavoritePage, MangaPage, PostPage } from "./pages"
 import { Switch, Route } from 'react-router-dom'
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
       <Route path="/" exact component={HomePage} />
       <Route path="/favorites" exact component={FavoritePage} />
       <Route path="/mangas" exact component={MangaPage} />
+      <Route path="/posts" exact component={PostPage} />
       <Route>
         <div className="container my-4">
           <h1 className="text-center"> 404 Page Not Found </h1>

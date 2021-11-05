@@ -16,6 +16,9 @@ function Navbar (props) {
           <li className="nav-item mx-2">
             <Link to="/mangas" style={{ textDecoration: 'none' , color: 'inherit' }}>Manga</Link>
           </li>
+          <li className="nav-item mx-2">
+            <Link to="/posts" style={{ textDecoration: 'none' , color: 'inherit' }}>Post</Link>
+          </li>
         </ul>
       </div>
     </nav>

@@ -1,0 +1,34 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "Edit Post",
+      "author": "Lithaaaa",
+      "id": 2
+    },
+    {
+      "title": "New Post",
+      "author": "Rizky",
+      "id": 3
+    },
+    {
+      "title": "New Title",
+      "author": "Rizky Maulita",
+      "id": 4
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
