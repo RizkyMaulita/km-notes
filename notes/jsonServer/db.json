@@ -30,5 +30,85 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "Gamis",
+      "price": 250000,
+      "description": "desc of gamis",
+      "quantity": 50,
+      "tags": ["fashion","dresses"]
+    }
+  ],
+  "category": [
+    {
+      "id": 1,
+      "name": "Fashion",
+      "tags": ["dresses", "jeans", "shoes"]
+    },
+    {
+      "id": 2,
+      "name": "Furniture",
+      "tags": ["table", "chair"]
+    },
+    {
+      "id": 3,
+      "name": "Electronic",
+      "tags": ["laptop / PC", "gadget"]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "Litha",
+      "email": "....",
+      "password": "....",
+      "address": "....",
+      "phoneNumber": "...."
+    }
+  ],
+  "transactions": [
+    {
+      "id": 1,
+      "userId": 1,
+      "address": "...",
+      "phoneNumber": "...",
+      "totalPrice": 10000000,
+      "courierId": 1,
+      "totalProduct": 5,
+      "createdAt": "...",
+      "statusPayment": "pending/success/failed" 
+    }
+  ],
+  "transaction_detail": [
+    {
+      "id": 1,
+      "transactionId": 1,
+      "productId": 1,
+      "quantity": 3,
+      "totalPrice": 450000
+    },
+    {
+      "id": 2,
+      "transactionId": 1,
+      "productId": 2,
+      "quantity": 3,
+      "totalPrice": 450000
+    },
+    {
+      "id": 3,
+      "transactionId": 1,
+      "productId": 3,
+      "quantity": 3,
+      "totalPrice": 450000
+    }
+  ],
+  "courier": [
+    {
+      "id": 1,
+      "name": "JNE",
+      "imageUrl": "..."
+    }
+  ]
 }
