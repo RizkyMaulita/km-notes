@@ -32,7 +32,7 @@ export default function CatalogPage (props) {
       setCatalogs(data)
     } else {
       const category = categories[index].toLowerCase()
-      const filterData = data?.filter(product => product.categories === category)
+      const filterData = data?.filter(product => product.category === category)
       setCatalogs(filterData)
     }
   }
@@ -44,7 +44,7 @@ export default function CatalogPage (props) {
       currentProducts = data
     } else {
       const category = categories[activeTab].toLowerCase()
-      const filterData = data?.filter(product => product.categories === category)
+      const filterData = data?.filter(product => product.category === category)
       currentProducts = filterData
     }
     if (condition === 'all') {

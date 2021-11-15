@@ -17,6 +17,9 @@ function Navbar (props) {
             <Link to="/detail/1" style={{ textDecoration: 'none' , color: 'inherit' }}>Detail</Link>
           </li>
           <li className="nav-item mx-2">
+            <Link to="/cart" style={{ textDecoration: 'none' , color: 'inherit' }}>Cart</Link>
+          </li>
+          <li className="nav-item mx-2">
             <Link to="/checkout" style={{ textDecoration: 'none' , color: 'inherit' }}>Checkout</Link>
           </li>
           <li className="nav-item mx-2">
