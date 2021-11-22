@@ -1,0 +1,59 @@
+{
+  "fiturComment": [
+    {
+      "_id": "000011",
+      "articleId": 1,
+      "comment": {
+        "username": "Arvel",
+        "context": "Ini bagus"
+      }
+    },
+    {
+      "_id": "000012",
+      "articleId": 2,
+      "comment": {
+        "username": "Arvel",
+        "context": "Ini kok bisa seperti itu ya ?",
+        "comment": {
+          "username": "Devi",
+          "context": "Karena bla bla bla..."
+        }
+      }
+    },
+    {
+      "_id": "000013",
+      "articleId": 3,
+      "comment": {
+        "username": "Arvel",
+        "context": "Ini kok bisa seperti itu ya ?",
+        "comment": {
+          "username": "Devi",
+          "context": "Karena bla bla bla...",
+          "comment": {
+            "username": "Arvel",
+            "context": "Ohhh seperti itu"
+          }
+        }
+      }
+    }
+  ],
+  "statistikData": {
+    "2021": {
+      "mei": {
+        "tanamPohon": 2,
+        "bankSampah": 0
+      },
+      "juni": {
+        "tanamPohon": 0,
+        "bankSampah": 2
+      },
+      "juli": {
+        "tanamPohon": 2,
+        "bankSampah": 5
+      }
+    },
+    "2022": {
+      
+    }
+  }
+}
