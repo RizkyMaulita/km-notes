@@ -7,7 +7,7 @@
 3. npm install --save sequelize
 4. npm install --save-dev sequelize-cli
 5. npx sequelize-cli init
-6 ubah value pada config/config.json pada bagian development, sesuaikan dengan configuration MySQL pada lokal kalian 
+6. ubah value pada config/config.json pada bagian development, sesuaikan dengan configuration MySQL pada lokal kalian 
 7. npx sequelize-cli db:create
 8. npx sequelize-cli model:generate --name User --attributes name:string,password:string,email:string
 9. npx sequelize-cli model:generate --name Singer --attributes name:string
@@ -41,7 +41,7 @@
 ## Notes
 - Dokumentasi [Sequelize](https://sequelize.org/master/manual/getting-started.html)
 - Dokumentasi [Migrations with Sequelize CLI](https://sequelize.org/master/manual/migrations.html)
-- jika ingin tahu command apa aja yang ada si sequelize-cli, maka bisa lakukan
+- jika ingin tahu command apa aja yang ada di sequelize-cli, maka bisa lakukan
 ```
   npx sequelize-cli --help
 ```
