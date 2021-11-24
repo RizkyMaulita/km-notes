@@ -1,0 +1,15 @@
+1. npm init / npm init -y
+2. npm install --save mysql2
+3. npm install --save sequelize
+4. npm install --save-dev sequelize-cli
+5. npx sequelize-cli init
+6. npx sequelize-cli db:create
+7. npx sequelize-cli model:generate --name User --attributes name:string,password:string,email:string
+8. npx sequelize-cli model:generate --name Singer --attributes name:string
+9. npx sequelize-cli model:generate --name Album --attributes name:string,singerId:integer
+10. npx sequelize-cli db:migrate
+11. npx sequelize-cli migration:generate --name add_fk_singerId_in_album
+12. npx sequelize-cli db:migrate
+
+jika ingin tahu command apa aja yang ada si sequelize-cli, maka bisa lakukan
+  npx sequelize-cli --help
