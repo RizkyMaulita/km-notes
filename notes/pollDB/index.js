@@ -1,7 +1,7 @@
 const client = require('./config')
 const dataSinger = require('./data/singer.json')
 const fs = require('fs')
-// client.query('SELECT * FROM User', function (error, results, fields) {
+// client.query('SELECT User.name, User.email FROM User', function (error, results, fields) {
 //   if (error) throw error;
 //   console.log(results);
 // });

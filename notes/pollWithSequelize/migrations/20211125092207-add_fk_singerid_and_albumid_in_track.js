@@ -8,12 +8,23 @@ module.exports = {
      * Example:
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
-    await queryInterface.addConstraint('Albums', {
+     await queryInterface.addConstraint('Tracks', {
       fields: ['singerId'],
       type: 'foreign key',
-      name: 'fk_singer_in_album',
+      name: 'fk_singer_in_track',
       references: { //Required field
         table: 'Singers',
+        field: 'id'
+      },
+      onDelete: 'cascade',
+      onUpdate: 'cascade'
+    });
+    await queryInterface.addConstraint('Tracks', {
+      fields: ['albumId'],
+      type: 'foreign key',
+      name: 'fk_album_in_track',
+      references: { //Required field
+        table: 'Albums',
         field: 'id'
       },
       onDelete: 'cascade',
@@ -28,6 +39,7 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    await queryInterface.removeConstraint('Albums', 'fk_singer_in_album', {})
+     await queryInterface.removeConstraint('Tracks', 'fk_singer_in_track', {})
+     await queryInterface.removeConstraint('Tracks', 'fk_album_in_track', {})
   }
 };

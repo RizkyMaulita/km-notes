@@ -16,6 +16,21 @@
 12. npx sequelize-cli migration:generate --name add_fk_singerId_in_album
 13. ubah isi file `<timestamp>-add_fk_singerId_in_album.js` yang ada di migrations dengan mengacu pada [dokumentasi berikut](https://sequelize.org/master/class/lib/dialects/abstract/query-interface.js~QueryInterface.html#instance-method-addConstraint) 
 14. npx sequelize-cli db:migrate
+15. npx sequelize-cli model:generate --name Playlist --attributes name:string,userId:integer
+16. npx sequelize-cli model:generate --name Track --attributes title:string,singerId:integer,albumId:integer
+17. npx sequelize-cli model:generate --name Playlist_Track --attributes playlistId:integer,trackId:integer
+18. npx sequelize-cli migration:generate --name add_fk_userid__in_playlist
+19. npx sequelize-cli migration:generate --name add_fk_singerid_and_albumid_in_track
+20. npx sequelize-cli migration:generate --name add_fk_playlistid_and_trackid_in_playlist_track
+21. ubah isi file `<timestamp>-add_fk_userid__in_playlist.js` yang ada di migrations
+22. ubah isi file `<timestamp>-add_fk_singerid_and_albumid_in_track.js` yang ada di migrations
+23. npx sequelize-cli db:migrate
+24. npx sequelize-cli seed:generate --name seedingUser
+25. ubah file seeding in `<timestamp>-seedingUser.js` yang ada di folder seeders
+26. npx sequelize-cli db:seed:all
+27. npx sequelize-cli seed:generate --name seedingSinger
+28. ubah file seeding in `<timestamp>-seedingSinger.js` yang ada di folder seeders
+29. npx sequelize-cli db:seed --seed `<timestamp>-seedingSinger.js`
 
 ## Default
 - nama model berupa `singular` dan nama table berupa `plural`
