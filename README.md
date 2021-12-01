@@ -28,3 +28,6 @@
 
 - [Introduction Express](./notes/reviewExpress)
   > Express
+
+- [Express - Authentication & Model](./notes/expressAuthModel)
+  > Express, Sequelize, Bcryptjs, JWT

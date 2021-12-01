@@ -19,7 +19,9 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING
   }, {
     sequelize,
-    modelName: 'User'
+    modelName: 'User',
+    paranoid: true  // paranoid untuk menghandle ketika kita ingin menghapus data tetapi hanya soft delete
+    // data tetap ada di database supaya menjadi history
   });
   return User;
 };

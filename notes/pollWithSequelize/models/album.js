@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     singerId: DataTypes.INTEGER
   }, {
     sequelize,
-    modelName: 'Album'
+    modelName: 'Album',
+    paranoid: true
   });
   return Album;
 };
