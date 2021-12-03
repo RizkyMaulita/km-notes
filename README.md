@@ -30,4 +30,7 @@
   > Express
 
 - [Express - Authentication & Model](./notes/expressAuthModel)
-  > Express, Sequelize, Bcryptjs, JWT
+  > Express, Sequelize, Bcryptjs, JWT, MySQL
+
+- [Express Lanjutan](./notes/expressSeqCLI)
+  > Express, Sequelize, Sequelize-CLI, MySQL, Bcryptjs, JWT
