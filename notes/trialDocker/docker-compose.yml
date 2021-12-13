@@ -8,7 +8,7 @@ services:
     restart: unless-stopped
     tty: true
     ports:
-      - "3306:3306"
+      - "3308:3306"
     environment:
       - MYSQL_DATABASE=db_skilvul_ecommerce
       - MYSQL_ROOT_PASSWORD=123456
