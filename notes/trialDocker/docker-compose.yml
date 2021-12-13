@@ -1,0 +1,52 @@
+version: '3'
+
+services:
+  #MySQL Service
+  db_mysql:
+    build: ./mysql
+    container_name: db_mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=db_skilvul_ecommerce
+      - MYSQL_ROOT_PASSWORD=123456
+      - SERVICE_TAGS=dev
+      - SERVICE_NAME=mysql
+      - TZ=Asia/Jakarta
+    volumes:
+      - dbdata:/var/lib/mysql/
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - app-network
+
+  express: #name of the second service
+    build: ./expressApp # specify the directory of the Dockerfile
+    # environment:
+    #   - NODE_ENV=development
+    #   - DB_HOST=db_mysql
+    #   - DB_USER=root
+    #   - DB_PASSWORD=123456
+    #   - DB_NAME=db_skilvul_ecommerce
+    env_file: ./.env
+    container_name: be-example
+    ports:
+      - "3003:3003" #specify ports forewarding
+    volumes:
+      - ./expressApp:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - db_mysql
+    networks:
+      - app-network
+
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+
+#Volumes
+volumes:
+  dbdata:
+    driver: local
