@@ -1,0 +1,71 @@
+Comment 1 
+  Comment 1.1, di comment oleh User A
+  Comment 1.2
+  @UserA , Comment 1.3
+  @comment1.1 , Comment 1.4
+
+..
+  ..
+    ..
+      ..
+        ..
+          ..
+            ..
+              ..
+                ..
+                  ..
+rep_comments: [
+  {
+    uuid: generate(uuid),   // or primary key in table
+    context: '',
+    author: author1,
+    depends_on: ''
+  },
+  {
+    uuid: uuid2,
+    context: '',
+    author: author2,
+    depends_on: author1
+  },
+  {
+    uuid: generate(uuid),
+    context: '',
+    author: author3,
+    depends_on: uuid2
+  }
+]
+
+Comment 1 
+  Comment 1.1, di comment oleh User A
+  Comment 1.2
+  @UserA , Comment 1.3
+  @comment1.1 , Comment 1.4
+
+Comment 2
+  Comment 2.1
+
+post /comments => buat comment baru sejajar dengan Comment 1
+post /comments/:id => emmbed comment in rep_comments yang id tertentu, Comment 1.1 / 1.2 / ...
+  => find comments :id 
+  => update rep_comments dengan payload yg baru
+    const payload = { 
+      uuid: generate(uuid v4) // https://www.npmjs.com/package/uuid
+      context: req.body.context,
+      author: req.userLogin.userId,
+      depends_on: {
+        author: req.body.depends_on.author,
+        uuid: req.body.depends_on.uuid
+      }
+    }
+
+  => update nya harus di push dari rep_comments yang sebelumnya
+    const comments = await Commment.findOne({ where: { id: req.params.id }})
+    const rep_comments = comments.rep_comments
+    const new_rep_comment = [ ...rep_comments, payload]
+    await Comment.update({
+      rep_comments: new_rep_comment
+    }, {
+      where: {
+        id: req.params.id
+      }
+    })

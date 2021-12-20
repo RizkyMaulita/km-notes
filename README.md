@@ -34,3 +34,8 @@
 
 - [Express Lanjutan](./notes/expressSeqCLI)
   > Express, Sequelize, Sequelize-CLI, MySQL, Bcryptjs, JWT
+
+- [Docker](./notes/trialDocker)
+  > Dockerfile, Docker-Compose
+
+- [Project Backend](./notes/projectBackend)
