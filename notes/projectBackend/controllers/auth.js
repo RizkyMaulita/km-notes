@@ -1,6 +1,8 @@
 const { User, Role } = require('../models')
 const { comparePassword } = require('../helpers/bcrypt')
 const { generateToken } = require('../helpers/jwt')
+const { Op } = require('sequelize')
+const { hashPassword } = require('../helpers/bcrypt')
 
 class AuthController {
   static async login (req, res, next) {
@@ -50,6 +52,50 @@ class AuthController {
       next(error)
     }
   }
+
+  static async register (req, res, next) {
+    try {
+      const { userName, email, password } = req.body
+      if (!userName || !email || !password) {
+        next({
+          code: 400,
+          message: `'userName', 'email', 'password' can't be empty`
+        })
+        return ;
+      }
+      const retrieviedUser = await User.findOne({
+        where: {
+          [Op.or]: {
+            userName,
+            email
+          }
+        }
+      })
+      if (retrieviedUser) {
+        next({
+          code: 400,
+          message: `'username' and 'email' already exist`
+        })
+        return ;
+      }
+      const newUser = await User.create({
+        userName,
+        email,
+        password: hashPassword(password),
+        roleId: 2
+      })
+      res.status(201).json({
+        message: `Successfully register new account !`,
+        data: {
+          userId: newUser.userId,
+          userName,
+          email
+        }
+      })
+    } catch (error) {
+      next(error)
+    }
+  } 
 }
 
 module.exports = AuthController
