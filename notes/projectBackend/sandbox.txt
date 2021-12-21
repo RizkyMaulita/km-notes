@@ -69,3 +69,61 @@ post /comments/:id => emmbed comment in rep_comments yang id tertentu, Comment 1
         id: req.params.id
       }
     })
+
+//-----------------------------------------------------------------------------
+getComments By IssueID
+[
+  {
+    userID: 'userId', // perlu JOIN ke USER
+    context: ...,
+    issueID: ...,
+    rep_comments: [
+      {
+        uuid: uuid1,
+        context: '',
+        author: { // ini kan userID, nanti di display kita butuh avatar dan userNamenya juga
+          userID: '', // kita HANYA NGAMBIL DATA DARI TOKEN LOGIN. => req.loginUser
+          userName: '',
+          avatar: ''
+        },
+        depends_on: {
+          author: '',
+          uuid: '' 
+        } 
+      },
+      {
+        uuid: uuid2,
+        context: '',
+        author: author2,
+        depends_on: {
+          author: { // NGAMBIL DATA DARI USER
+            userID: '',
+            userName: '',
+            avatar: ''
+          },
+          uuid: '' // ngambil data dari uuid
+        } 
+      },
+      {
+        uuid: uuid3,
+        context: '',
+        author: {
+          userID: '',
+          userName: '',
+          avatar: ''
+        },
+        depends_on: {
+          author: {
+            userID: '',
+            userName: '',
+            avatar: ''
+          },
+          uuid: uuid2 
+        }
+      }
+    ]
+  }
+]
+
+...
+  avatar => username => contextnya apa => (jika dia depends_on author / uuid, maka nanti ada embed @USER atau @Comment)

@@ -31,7 +31,8 @@ class AuthController {
               userName,
               email,
               roleId,
-              roleName: Role?.name || null
+              roleName: Role?.name || null,
+              avatar
             })
             // biasanya kita juga nyimpen data di redis 
             res.status(200).json({ token })
