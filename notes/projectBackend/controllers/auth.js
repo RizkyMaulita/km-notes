@@ -81,8 +81,9 @@ class AuthController {
       const newUser = await User.create({
         userName,
         email,
-        password: hashPassword(password),
-        roleId: 2
+        password        
+        // password: hashPassword(password),
+        // roleId: 2
       })
       res.status(201).json({
         message: `Successfully register new account !`,
