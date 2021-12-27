@@ -89,7 +89,10 @@ getComments By IssueID
         depends_on: {
           author: '',
           uuid: '' 
-        } 
+        },
+        likes: [],
+        createdAt: new Date(),
+        updatedAt: new Date()
       },
       {
         uuid: uuid2,
@@ -102,7 +105,8 @@ getComments By IssueID
             avatar: ''
           },
           uuid: '' // ngambil data dari uuid
-        } 
+        } ,
+        likes: []
       },
       {
         uuid: uuid3,
@@ -119,7 +123,8 @@ getComments By IssueID
             avatar: ''
           },
           uuid: uuid2 
-        }
+        },
+        likes: []
       }
     ]
   }
@@ -127,3 +132,36 @@ getComments By IssueID
 
 ...
   avatar => username => contextnya apa => (jika dia depends_on author / uuid, maka nanti ada embed @USER atau @Comment)
+
+----------------------------------------------------------------------------------------------
+update like in comment
+
+patch /comments/:commentID 
+  body : {
+    rep_comments_uuid: ''
+    like: boolean
+  }
+
+jika ada fitur dislike, maka di dalam table comment, likes type JSON, tapi berubah array of userID
+jika body likenya false, maka ngehapus userID di dalam comment likes, kalau true, nambahin userID
+
+jika di body rep_comments_uuid nya ada, maka yang di update adalah column likes yang di dalam rep_comments_uuid
+else update column likes yang di table comments
+
+// update like in rep_comments
+
+// patch /comments/:commentID/:rep_comments_uuid
+
+
+//-----------------------------------------------------------
+reward
+
+userID
+point
+amount
+noHp
+accountName
+status => (pending, settled, failed) => kalau gagal, point harus di balikin.
+notes => biasanya notes ini untuk kasih catatan jika failed
+claimDate => tanggal claim
+settlementDate => tanggal kita kasih reward
