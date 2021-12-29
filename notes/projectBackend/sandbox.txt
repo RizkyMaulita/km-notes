@@ -165,3 +165,127 @@ status => (pending, settled, failed) => kalau gagal, point harus di balikin.
 notes => biasanya notes ini untuk kasih catatan jika failed
 claimDate => tanggal claim
 settlementDate => tanggal kita kasih reward
+
+
+//----------------------------------------------------------------------------------
+```
+[
+    {
+      "documentation_id": 1,
+      "caption" : "Peduli lingkungan untuk bumi yang lebih baik.",
+      "image" : "https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80["](https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80),
+      "messages" : "Sangat menyenangkan bisa berkontribusi untuk bumi. Semangat selalu dalam merawat bumi kita!",
+      "participant_id" : "2",
+      "tanam_pohon_id" : 12,
+      "createdAt": "2021-12-24T09:08:30.000Z",
+      "updatedAt": "2021-12-24T09:08:30.000Z",
+      tanamPohon: {
+        id: 12,
+        title: 'tanam pohon 12',
+        ...
+      }
+    },
+    {
+      "documentation_id": 1,
+      "caption" : "Peduli lingkungan untuk bumi yang lebih baik.",
+      "image" : "https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80["](https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80),
+      "messages" : "Sangat menyenangkan bisa berkontribusi untuk bumi. Semangat selalu dalam merawat bumi kita!",
+      "participant_id" : "2",
+      "tanam_pohon_id" : 12,
+      "createdAt": "2021-12-24T09:08:30.000Z",
+      "updatedAt": "2021-12-24T09:08:30.000Z",
+      tanamPohon: {
+        id: 12,
+        title: 'tanam pohon 12',
+        ...
+      }
+    },
+    ...
+  ]
+```
+
+
+di UI, di group by tanam pohon => 
+  [
+    {
+      id: 'id_tanam_pohon',
+      title: 'tanam_pohon_12',
+      image: 'image_tanam_phon',
+      description: 'description tanam pohon'
+      documentations: [
+        {
+          "documentation_id": 1,
+          "caption" : "Peduli lingkungan untuk bumi yang lebih baik.",
+          "image" : "https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80["](https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80),
+          "messages" : "Sangat menyenangkan bisa berkontribusi untuk bumi. Semangat selalu dalam merawat bumi kita!",
+          "participant_id" : "2",
+          "tanam_pohon_id" : 12,
+          "createdAt": "2021-12-24T09:08:30.000Z",
+          "updatedAt": "2021-12-24T09:08:30.000Z",
+        },
+        {
+          "documentation_id": 1,
+          "caption" : "Peduli lingkungan untuk bumi yang lebih baik.",
+          "image" : "https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80["](https://images.unsplash.com/photo-1617450365226-9bf28c04e130?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80),
+          "messages" : "Sangat menyenangkan bisa berkontribusi untuk bumi. Semangat selalu dalam merawat bumi kita!",
+          "participant_id" : "2",
+          "tanam_pohon_id" : 12,
+          "createdAt": "2021-12-24T09:08:30.000Z",
+          "updatedAt": "2021-12-24T09:08:30.000Z",
+        }
+      ]
+    }
+  ]
+
+get /documentations
+  await TanamPohon.findAll({
+    include: {
+      model: Documentation,
+      include: {
+        model: Participant
+      }
+    }
+  })
+
+get /documentations/tanam_pohon/:tanam_pohon_id
+  await TanamPohon.findOne({
+    include: {
+      model: Documentation,
+      include: {
+        model: Participant
+      }
+    },
+    where: {
+      id: Number(req.params.tanam_pohon_id)
+    }
+  })
+
+get /documentations/:id
+  await Documentation.findOne({
+    where: {
+      id: Number(req.params.id),
+    },
+    include: {
+      model: Participant
+    }
+  })
+
+--------------------------------
+get /tanam_pohon
+  await TanamPohon.findAll({
+    include: {
+      model: Participant,
+      attributes: ['userId']    // ini untuk penanda button orange / yellow in card tanam pohon
+    }
+  })
+
+get /tanam_pohon/:id
+  await TanamPohon.findOne({
+    include: {
+      model: Participant,
+      attributes: ['userId']    // ini untuk penanda dia daftar / unggah foto
+    },
+    where: {
+      id: Number(req.params.id),
+    }
+  })

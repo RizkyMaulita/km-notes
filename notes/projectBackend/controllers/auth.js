@@ -32,7 +32,7 @@ class AuthController {
               email,
               roleId,
               roleName: Role?.name || null,
-              avatar
+              // avatar
             })
             // biasanya kita juga nyimpen data di redis 
             res.status(200).json({ token })

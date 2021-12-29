@@ -54,7 +54,7 @@ module.exports = (sequelize, DataTypes) => {
     hooks: {
       beforeCreate(model) {
         model.password = hashPassword(model.password)
-        if (model.roleId) {
+        if (!model.roleId) {
           model.roleId = 2
         }
       }
